@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Education
+{% endblock title %}
+
+{% block body %}
+<center>
+    <h3>Quiz for Education</h3>
+</center>
+<div style="padding-left:30px">
+    {%for result in Education%}
+        <table>
+            <tr>
+                <td>{{result.Question}} ?.</td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="option1" class="rb" name="{{result.Question}}" value="{{result.option1}}"> {{result.option1}}</td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="option2" class="rb" name="{{result.Question}}" value="{{result.option2}}"> {{result.option2}}</td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="option3" class="rb" name="{{result.Question}}" value="{{result.option3}}"> {{result.option3}}</td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="option4" class="rb" name="{{result.Question}}" value="{{result.option4}}"> {{result.option4}}</td>
+            </tr>
+            <tr>
+                <td><lable id="correctans" class="rb" style="display:none; color:green;"><b>The Correct Answer Is :{{result.correctans}}</b></lable></td>
+            </tr>
+            <hr>
+        </table>
+    {% endfor %}
+    <br>
+    <input type="submit" value="Click For Result" id="but1" onclick="getanswers();"/>
+    <hr/>
+    <b id="UserAnswers"></b>
+    <hr>
+</div>
+{% endblock body %}

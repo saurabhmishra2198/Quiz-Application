@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Comprehension
+{% endblock title %}
+
+{% block body %}
+<center>
+    <h3>Quiz for Comprehension</h3>
+</center>
+<p>Male lions are rather reticent about expanding their energy in hunting more than three quarters of kills are made by lionesses are in front, tensely scanning ahead, the cubs lag playfully behind and the males bring up the rear, walking slowly, their massive heads nodding with each step as if they were bored with the whole matter. But slothfulness may have survival value. With lionesses busy hunting, the males function as guard for the cubs, protecting them particularly from hyenas.</p>
+<div style="padding-left:30px">
+    {%for result in Comprehension%}
+        <table>
+            <tr>
+                <td>{{result.Question}} ?.</td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="option1" class="rb" name="{{result.Question}}" value="{{result.option1}}"> {{result.option1}}</td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="option2" class="rb" name="{{result.Question}}" value="{{result.option2}}"> {{result.option2}}</td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="option3" class="rb" name="{{result.Question}}" value="{{result.option3}}"> {{result.option3}}</td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="option4" class="rb" name="{{result.Question}}" value="{{result.option4}}"> {{result.option4}}</td>
+            </tr>
+            <tr>
+                <td><lable id="correctans" class="rb" style="display:none; color:green;"><b>The Correct Answer Is :{{result.correctans}}</b></lable></td>
+            </tr>
+            <hr>
+        </table>
+    {% endfor %}
+    <br>
+    <input type="submit" value="Click For Result" id="but1" onclick="getanswers();"/>
+    <hr/>
+    <b id="UserAnswers"></b>
+    <hr>
+</div>
+{% endblock body %}
